@@ -1,7 +1,13 @@
 import React from 'react';
+import Row from './Row';
 
-const Page = () => {
-    return <h1>Hello, I'm a Page</h1>;
+const Page = props => {
+    const { layout } = props;
+    return layout
+        ? layout.body.rows.map(row => {
+            return <Row key={row.identifier} />;
+        })
+        : null;
 };
 
 export default Page;
