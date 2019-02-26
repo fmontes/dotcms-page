@@ -1,11 +1,13 @@
 import React from 'react';
 import Row from './Row';
+import { getUpdatedColumns } from '../utils'
 
 const Page = props => {
-    const { layout } = props;
+    const { layout, containers } = props;
     return layout
         ? layout.body.rows.map(row => {
-            return <Row key={row.identifier} />;
+            const columns = getUpdatedColumns(row.columns, containers);
+            return <Row key={row.identifier} columns={columns} />;
         })
         : null;
 };
