@@ -3,7 +3,7 @@ function getFullContainers(column, containers) {
         const fullContainer = containers[container.identifier];
         return {
             ...fullContainer.container,
-            contentlets: fullContainer.contentlets
+            contentlets: fullContainer.contentlets[`uuid-${container.uuid}`]
         };
     });
 };
